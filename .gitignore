@@ -1,0 +1,16 @@
+.gradle
+.idea
+.vscode
+
+build
+docs/api
+
+.classpath
+.project
+.settings
+bin/main
+bin/test
+
+.DS_Store
+
+.java-version

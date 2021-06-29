@@ -1,0 +1,27 @@
+plugins {
+    id 'groovy'
+    id 'com.diffplug.spotless' version '5.14.0'
+}
+
+repositories {
+    google(); mavenCentral();
+    maven { url "https://repo.jenkins-ci.org/releases/" }
+}
+
+sourceSets {
+    main {
+        groovy.srcDirs = ["src", "vars"]
+    }
+
+    test {
+        groovy.srcDirs = ["test"]
+    }
+}
+
+dependencies {
+    implementation "org.codehaus.groovy:groovy-all:2.4.6"
+
+    testImplementation "junit:junit:4.12"
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.20.2' // Needed for 1.4
+    testImplementation "com.lesfurets:jenkins-pipeline-unit:1.4" // Problem presists through 1.9
+}
